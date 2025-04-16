@@ -1,0 +1,153 @@
+// colors
+$bg-color: linear-gradient(to bottom, #1d3461, #0b1d30);
+$circle-color: #ff0017;
+$logo-color: #fff;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-color;
+  overflow: hidden;
+}
+
+.logo{
+  @include center;
+  width: 65vmin;
+  height: 65vmin;
+  border-radius: 50%;
+  background: $circle-color;
+  filter: drop-shadow(0 0 5vmin $circle-color);
+
+  .circle{
+    @include center;
+    width: 46.4vmin;
+    height: 46.4vmin;
+    border-radius: 50%;
+    background: $circle-color;
+    border: 4.5vmin solid $logo-color;
+
+    .a-shape{
+      .left-shape{
+        @include center;
+        z-index: 2;
+        top: -8vmin;
+        left: -14.3vmin;
+        width: 6.6vmin;
+        height: 71.6vmin;
+        background: $logo-color;
+        transform: rotate(26deg) skewY(-25deg);
+
+        &:before{
+          @include pseudo;
+          left: -1.6vmin;
+          top: 6.5vmin;
+          width: 1.6vmin;
+          height: 55vmin;
+          background: $circle-color;
+        }
+
+        &:after{
+          @include pseudo;
+          left: 4.45vmin;
+          width: 3.5vmin;
+          height: 71.6vmin;
+          background: $logo-color;
+          transform: rotate(-2.9deg) skewY(3deg);
+        }
+      }
+
+      .left-shape-line{
+        @include center;
+        z-index: 1;
+        bottom: -43vmin;
+        left: -24.5vmin;
+        width: 1.7vmin;
+        height: 10vmin;
+        background: $circle-color;
+        transform: rotate(23deg);
+      }
+
+      .center-shape{
+        @include center;
+        z-index: 1;
+        top: 10.75vmin;
+        width: 20vmin;
+        height: 8.15vmin;
+        background: $logo-color;
+
+        &:before{
+          @include pseudo;
+          top: -1.3vmin;
+          left: 10vmin;
+          width: 20vmin;
+          height: 1.7vmin;
+          background: $circle-color;
+          transform: rotate(43deg);
+        }
+
+        &:after{
+          @include pseudo;
+          top: 8.4vmin;
+          left: 10vmin;
+          width: 20vmin;
+          height: 1.7vmin;
+          background: $circle-color;
+          transform: rotate(-38deg);
+        }
+      }
+
+      .center-shape-right{
+        @include center;
+        z-index: 1;
+        top: 10.6vmin;
+        left: 19.75vmin;
+        width: 0;
+        height: 0;
+        border-top: 8.5vmin solid transparent;
+        border-bottom: 7vmin solid transparent;
+        border-left: 9.2vmin solid $logo-color;
+
+        &:before{
+          @include pseudo;
+          width: 10vmin;
+        }
+      }
+
+      .right-shape{
+        @include center;
+        top: -20.35vmin;
+        left: 18.7vmin;
+        width: 8.1vmin;
+        height: 52vmin;
+        background: $logo-color;
+
+        &:after{
+          @include pseudo;
+          top: 10vmin;
+          left: 8.1vmin;
+          width: 1.7vmin;
+          height: 10vmin;
+          background: $circle-color;
+        }
+      }
+    }
+  }
+}
